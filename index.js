@@ -28,7 +28,10 @@ app.get("/", (req, res) => {
 mongoose.connect("mongodb+srv://ewertonLeal:fb1nPrpNEtPxlsYj@cluster0.7mh0gcz.mongodb.net/?retryWrites=true&w=majority")
 .then(() => {
     console.log("conectamos ao mongo db");
-    app.listen(3000);
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+    });
 
 })
 .catch((err) => console.log(err));
